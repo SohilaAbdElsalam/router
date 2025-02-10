@@ -1,0 +1,23 @@
+<h2 >Learn, Cook, Eat Your Food</h2>
+<ul class=" flex flex-wrap gap-5 mt-7">
+    <li routerLink="/category/all" class="inline-block catLink px-4 py-2  border transition-all hover:shadow-xl shadow duration-300 rounded-full hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 active">ALL</li>
+
+    @if (categories) {
+        @for (c of categories; track $index) {
+            <li [routerLink]="['/category',c.strCategory ]"
+            class="inline-block catLink px-4 py-2  border transition-all hover:shadow-xl shadow duration-300 rounded-full hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 active">{{c.strCategory}}</li>
+        }
+    }
+</ul>
+
+ <div class="grid grid-cols-4 gap-4 mb-5 my-15">
+       @if (meals) {
+        @for (i of meals; track $index) {
+            <div class="meal ">
+                <img [src]="i.strMealThumb" alt="" >
+                <h4 >{{i.strMeal}}</h4>
+                <button type="button" class="my-button">View Recipe</button>
+               </div>
+        }
+       }
+</div>
